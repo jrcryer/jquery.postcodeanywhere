@@ -2,7 +2,7 @@
 
     $.PostCodeAnyWhere = function(elem, options) {
 
-        var submit = function (elem, postCode) {
+        var submit = function (postCode) {
             var url  = "http://services.postcodeanywhere.co.uk/PostcodeAnywhere/Interactive/Find/v1.10/json2.ws?";
             url += "&Key="+options.key;
             url += "&SearchTerm=" + encodeURIComponent(postCode);
@@ -15,7 +15,7 @@
 
         elem.click(function(e) {
             options.onClick();
-            submit(elem, $(options.postcode).attr('value'));
+            submit($(options.postcode).attr('value'));
             e.preventDefault();
         });
     };
