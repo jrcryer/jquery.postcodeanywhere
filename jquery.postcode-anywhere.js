@@ -15,7 +15,7 @@
 
         elem.click(function(e) {
             options.onClick();
-            submit($(options.postcode).attr('value'));
+            submit($(options.postcode).val());
             e.preventDefault();
         });
     };
