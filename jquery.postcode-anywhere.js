@@ -14,8 +14,14 @@
         };
 
         elem.click(function(e) {
+            var postcode = $(options.postcode).val();
+            var isValid = options.validate(postcode);
+            if(!isValid) {
+                options.onError();
+                return false;
+            }
             options.onClick();
-            submit($(options.postcode).val());
+            submit(postcode);
             e.preventDefault();
         });
     };
@@ -24,6 +30,15 @@
     $.PostCodeAnyWhere.defaults = {
         'onFind': function() {},
         'onClick': function() {},
+        'validate': function(postcode) {
+            if(postcode.length > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        },
+        'onError': function() {},
         'postcode': '.postcode',
         'language': 'English',
         'filter' : 'None'
