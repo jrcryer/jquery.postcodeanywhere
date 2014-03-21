@@ -3,7 +3,7 @@
     $.PostCodeAnyWhere = function(elem, options) {
 
         var submit = function (postCode) {
-            var url  = "http://services.postcodeanywhere.co.uk/PostcodeAnywhere/Interactive/Find/v1.10/json2.ws?";
+            var url  = "//services.postcodeanywhere.co.uk/PostcodeAnywhere/Interactive/Find/v1.10/json2.ws?";
             url += "&Key="+options.key;
             url += "&SearchTerm=" + encodeURIComponent(postCode);
             url += "&CallbackFunction=?";
